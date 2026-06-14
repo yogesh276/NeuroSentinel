@@ -1,34 +1,19 @@
 import streamlit as st
-import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
 
-data = pd.read_csv("sample_logs.csv")
-
-X = data[['failed_logins','data_transfer_mb','unknown_process']]
-y = data['threat']
-
-model = RandomForestClassifier()
-model.fit(X, y)
-
-st.title("NeuroShield AI")
+st.title("NeuroSentinel AI")
 
 failed_logins = st.slider("Failed Logins",0,50,5)
 data_transfer = st.slider("Data Transfer (MB)",0,1000,100)
 unknown_process = st.selectbox("Unknown Process",[0,1])
 
-input_data = pd.DataFrame(
-    [[failed_logins,data_transfer,unknown_process]],
-    columns=['failed_logins','data_transfer_mb','unknown_process']
-)
-
 if st.button("Analyze Threat"):
-    prediction = model.predict(input_data)
+    score = failed_logins + (data_transfer/50) + (unknown_process*20)
 
-    if prediction[0] == 1:
+    if score > 40:
         st.error("HIGH THREAT DETECTED")
-        st.write("Action:")
-        st.write("• Block IP")
-        st.write("• Quarantine Device")
-        st.write("• Alert Administrator")
+        st.write("Recommended Actions:")
+        st.write("• Block suspicious IP")
+        st.write("• Quarantine device")
+        st.write("• Alert administrator")
     else:
         st.success("System Safe")
