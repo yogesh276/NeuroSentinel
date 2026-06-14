@@ -1,8 +1,14 @@
 import streamlit as st
-import pickle
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
-model = pickle.load(open("threat_model.pkl","rb"))
+data = pd.read_csv("sample_logs.csv")
+
+X = data[['failed_logins','data_transfer_mb','unknown_process']]
+y = data['threat']
+
+model = RandomForestClassifier()
+model.fit(X, y)
 
 st.title("NeuroShield AI")
 
