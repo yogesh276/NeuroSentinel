@@ -68,7 +68,7 @@ When a high-risk threat is detected, NeuroSentinel AI recommends:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/neurosentinel.git
+git clone 
 ```
 
 Install dependencies:
@@ -104,6 +104,7 @@ The application provides an interactive dashboard where users can simulate cyber
 ## 👨‍💻 Author
 
 Yogesh
+Harshvardan
 
 ---
 
