@@ -68,7 +68,7 @@ When a high-risk threat is detected, NeuroSentinel AI recommends:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yogesh276/NeuroSentinel/tree/main
+git clone https://github.com/yogesh276/NeuroSentinel
 ```
 
 Install dependencies:
